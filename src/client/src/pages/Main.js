@@ -31,13 +31,15 @@ export default function Main({ match }) {
   }, [match.params.id]);
 
   useEffect(() => {
+    let mounted = true;
     const socket = io(process.env.SERVER || 'http://localhost:3333', {
       query: { user: match.params.id }
     });
 
     socket.on('match', dev => {
-      setMatchDev(dev);
+      if (mounted) setMatchDev(dev);
     });
+    return () => (mounted = false);
   }, [match.params.id]);
 
   async function handleLike(id) {
