@@ -21,12 +21,12 @@ A simplified version of tinder made for developers (learning purpose only).
 
 1. Clone this repo
 2. Open the repo in the terminal
-3. run `npm install`
-4. run `npm dev`
+3. Run `npm install`
+4. Run `npm dev`
 5. Open another terminal
 6. Go to the folder `/src/client`
-7. run `npm install`
-8. run `npm start`
+7. Run `npm install`
+8. Run `npm start`
 9. App will run at `localhost:3000`
 
 ## Live Preview
