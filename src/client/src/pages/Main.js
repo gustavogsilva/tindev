@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import { Link } from 'react-router-dom';
 import './Main.css';
+import dotenv from 'dotenv';
 
 import api from '../services/api';
-
 import logo from '../assets/logo.svg';
 import dislike from '../assets/dislike.svg';
 import like from '../assets/like.svg';
 import itsamatch from '../assets/itsamatch.png';
+
+dotenv.config();
 
 export default function Main({ match }) {
   const [users, setUsers] = useState([]);
@@ -29,7 +31,7 @@ export default function Main({ match }) {
   }, [match.params.id]);
 
   useEffect(() => {
-    const socket = io('http://localhost:3333', {
+    const socket = io(process.env.SERVER, {
       query: { user: match.params.id }
     });
 

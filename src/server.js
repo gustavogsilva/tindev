@@ -29,15 +29,15 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.use(express.static(path.join(__dirname, '..', '..', 'frontend', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use(cors());
 app.use(express.json());
 app.use(routes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
-server.listen(process.env.PORT, () => {
-  console.log(`app is running on ${process.env.HOST}:${process.env.PORT}`);
+server.listen(process.env.PORT || 3333, () => {
+  console.log(`app is running on ${process.env.SERVER}`);
 });
